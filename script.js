@@ -1,28 +1,28 @@
-function myFirstApp(name, age) {
-	alert("Привет меня зовут " + name + " и это моя первая программа");
+let chooseBtn = document.getElementById("choose"),
+	receiveBtn = document.getElementById('receive'),
+	heading = document.getElementsByTagName("h2")[0],
+	nameInput = document.getElementsByClassName("contactform_name")[0],
+	phoneInput = document.querySelector(".contactform_phone"),
+	mailInput = document.querySelectorAll(".contactform_mail")[0],
+	modal = document.querySelector(".modal"),
+	close = document.querySelector(".close"),
+	text = document.getElementsByName("message")[0];
 
-	function showSkills() {
-		let skill = ["html", "css", "bootstrap", "jquery", "sass", "less", "photoshop"];
 
-		for (let i = 0; i < skill.length; i++) {
-			document.write("Я владею " + skill[i] + "<br>")
-		}
+receiveBtn.addEventListener("click", function() {
+    modal.style.display = "block";
+})
+
+
+close.addEventListener("click", function() {
+    modal.style.display = "none";
+})
+
+
+nameInput.addEventListener("input", function() {
+	text.value = "Меня зовут " + nameInput.value + ". И я хочу спросить:";
+
+	if (nameInput.value == "") {
+		text.value = "";
 	}
-	showSkills();
-
-	function checkAge() {
-		if (age > 18) {
-			console.log("Вам 18");
-		}
-		else {
-			console.log("Вам не 18");
-		}
-	}
-	checkAge();
-	function calcPow(num) {
-		console.log(num * num);
-	}
-	calcPow(4);
-}
-
-myFirstApp("Javidan", 18);
+})
